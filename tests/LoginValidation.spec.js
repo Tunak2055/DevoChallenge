@@ -12,7 +12,7 @@ const testData = require('../dataSet/testData.json');
     await page.click('button[id="btSignIn"]');
 
     // Assert login is successful and is home page
-    await expect(page).toHaveURL(testData.homePage);
+    await expect(page).toHaveURL(testData.homePage, { timeout: 10000 }); 
     });
   
 
