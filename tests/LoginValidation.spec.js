@@ -21,8 +21,10 @@ test.describe('Login Feature Validation', () => {
         });
 
         await test.step('Assert Successful Login', async () => {
-            await expect(page).toHaveURL(testData.homePage, { timeout: 10000 });
-        }).retries(2);
+            await expect(loginPage.homeHeading).toHaveText("Home", { timeout: 10000 });
+            await page.waitForTimeout(1000);
+            await expect(page).toHaveURL(testData.homePage);
+        });
     });
 
     test('Invalid Login - Wrong Password', async ({ page }) => {
