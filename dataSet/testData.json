@@ -5,6 +5,9 @@
     "invalidUsername": "devotest@mail.com",
     "invalidPassword": "invalidPassword",
     "errorMessage": "Invalid email or password. Try again.",
-    "apiBaseUrl": "https://api.int.devo.com"
+    "apiBaseUrl": "https://api.int.devo.com",
+    "API_Endpoint": "/probio/domain/domaincd@qachallenge/roles/",
+    "API_role": "ADMIN",
+    "API_invalidRole": "admin"
   }
   
