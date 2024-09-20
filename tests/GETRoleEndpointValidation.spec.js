@@ -7,9 +7,9 @@ test.describe('GET Role Endpoint Validation', () => {
   const apiBaseUrl = testData.apiBaseUrl;
 
   test('Retrieve Administrator Role', async ({ request }) => {
-    const response = await request.get(`${apiBaseUrl + testData.API_Endpoint + testData.API_role}`, {
+    const response = await request.get(apiBaseUrl + testData.API_Endpoint + testData.API_role, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        authorization: `Bearer ${token}`,
       },
     });
 
@@ -21,9 +21,9 @@ test.describe('GET Role Endpoint Validation', () => {
   });
 
   test('Invalid Role Handling', async ({ request }) => {
-    const response = await request.get(`${apiBaseUrl + testData.API_Endpoint + testData.API_InvalidRole}`, {
+    const response = await request.get(apiBaseUrl + testData.API_Endpoint + testData.API_InvalidRole, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        authorization: `Bearer ${token}`,
       },
     });
     // Assert non-existent role returns 404
