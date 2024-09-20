@@ -1,14 +1,13 @@
 {
     "pageLogin": "https://app.int.devo.com",
     "homePage": "https://app.int.devo.com/#/home",
-    "username": "cristiandaddario@hotmail.com",
-    "password": "Wholetrain2055!!",
+    "AdminRolesPage": "https://app.int.devo.com/#/admin/roles",
     "invalidUsername": "devotest@mail.com",
     "invalidPassword": "invalidPassword",
     "errorMessage": "Invalid email or password. Try again.",
-    "roleName": "SomeRole",
-    "clonedRoleName": "Clone of SomeRole",
     "apiBaseUrl": "https://api.int.devo.com",
-    "token": "b054cd4ee73c25283e32dce4de0a5b3e"
+    "API_Endpoint": "/probio/domain/domaincd@qachallenge/roles/",
+    "API_role": "ADMIN",
+    "API_invalidRole": "admin"
   }
   
