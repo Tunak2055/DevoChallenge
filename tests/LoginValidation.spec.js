@@ -1,35 +1,46 @@
-// LoginFeatureValidation.test.js
 const { test, expect } = require('@playwright/test');
+const { LoginPage } = require('../pages/login-page.ts');
+require('dotenv').config({ path: '.env.test' });
 
 test.describe('Login Feature Validation', () => {
-const testData = require('../dataSet/testData.json');
+    const testData = require('../dataSet/testData.json');
+    const username = process.env.APP_USERNAME;
+    const password = process.env.APP_UPASSWORD;
 
     test('Valid Login', async ({ page }) => {
-    await page.goto(testData.pageLogin, { waitUntil: 'networkidle' });
+        const loginPage = new LoginPage(page);
 
-    await page.fill('input[id="loginEmail"]', testData.username);
-    await page.fill('input[id="loginPass"]', testData.password);
-    await page.click('button[id="btSignIn"]');
+        await test.step('Navigate to Login Page', async () => {
+            await page.goto(testData.pageLogin, { waitUntil: 'networkidle' });
+        });
 
-    // Assert login is successful and is home page
-    await expect(page).toHaveURL(testData.homePage, { timeout: 10000 }); 
+        await test.step('Fill in Login Credentials', async () => {
+            await loginPage.inputEmail.fill(username);
+            await loginPage.inputPassword.fill(password);
+            await loginPage.btnSignIn.click();
+        });
+
+        await test.step('Assert Successful Login', async () => {
+            await expect(page).toHaveURL(testData.homePage, { timeout: 10000 });
+        });
     });
-  
 
     test('Invalid Login - Wrong Password', async ({ page }) => {
+        const loginPage = new LoginPage(page);
 
-    await page.goto(testData.pageLogin, { waitUntil: 'networkidle' });
-  
-    await page.fill('input[id="loginEmail"]', testData.invalidUsername);
-    await page.fill('input[id="loginPass"]', testData.invalidPassword);
-    await page.click('button[id="btSignIn"]');
-  
-    // Assert error message  
-    await expect(page.getByRole('banner')).toBeVisible();
-    await expect(page.getByText(testData.errorMessage)).toContainText(testData.errorMessage);
-  });
-  
+        await test.step('Navigate to Login Page', async () => {
+            await page.goto(testData.pageLogin, { waitUntil: 'networkidle' });
+        });
+
+        await test.step('Fill in Invalid Credentials', async () => {
+            await loginPage.inputEmail.fill(testData.invalidUsername);
+            await loginPage.inputPassword.fill(testData.invalidPassword);
+            await loginPage.btnSignIn.click();
+        });
+
+        await test.step('Assert Error Message', async () => {
+            await expect(page.getByRole('banner')).toBeVisible();
+            await expect(page.getByText(testData.errorMessage)).toContainText(testData.errorMessage);
+        });
+    });
 });
-
-
-
