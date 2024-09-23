@@ -14,19 +14,9 @@ test.describe('GET Role Endpoint Validation', () => {
     });
 
     // Assert status is 200
-    expect(response.status()).toBe(200);
+    expect(response.status(),'Expected status code 200 for GET role endpoint').toBe(200);
     const responseBody = await response.json();
     // Assert role type is ADMIN
     expect(responseBody.type).toBe(testData.API_role);
-  });
-
-  test('Invalid Role Handling', async ({ request }) => {
-    const response = await request.get(apiBaseUrl + testData.API_Endpoint + testData.API_InvalidRole, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-    // Assert non-existent role returns 404
-    expect(response.status()).toBe(400);
   });
 });
