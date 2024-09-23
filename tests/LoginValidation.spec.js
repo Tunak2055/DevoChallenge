@@ -27,7 +27,7 @@ test.describe('Login Feature Validation', () => {
         });
     });
 
-    test('Invalid Login - Wrong Password', async ({ page }) => {
+    test('Invalid Login - Wrong Username and Password', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
         await test.step('Navigate to Login Page', async () => {
