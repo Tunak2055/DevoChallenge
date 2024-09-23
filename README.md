@@ -12,19 +12,20 @@ node -v
 npm -v
 
 Outdated Node
-# installs fnm (Fast Node Manager)
+
+installs fnm (Fast Node Manager)
 winget install Schniz.fnm
 
-# configure fnm environment
+configure fnm environment
 fnm env --use-on-cd | Out-String | Invoke-Expression
 
-# download and install Node.js
+download and install Node.js
 fnm use --install-if-missing 20
 
-# verifies the right Node.js version is in the environment
+verifies the right Node.js version is in the environment
 node -v # should print `v20.17.0`
 
-# verifies the right npm version is in the environment
+verifies the right npm version is in the environment
 npm -v # should print `10.8.2`
 
 ##### Setup Instructions
@@ -32,14 +33,17 @@ npm -v # should print `10.8.2`
 1- Clone repositorie:
 `git clone https://github.com/Tunak2055/DevoChallenge.git`
 
-
 2- Install Dependencies
 `npm install`
+
 3- Install Playwright latest
 `npm init playwright@latest`
+
 4- Delete tests folder created by default
+
 5 - go to devoChallenges folder
 `cd devoChallenges`
+
 6- Install dotenv to use environment variables
 `npm install dotenv --save`
 
@@ -53,11 +57,11 @@ To execute individual test
 - Clone Role Test:
     npx playwright test CloneRoleFeatureValidation.spec.js
 
-2 - ##### Run API Automation Test
+##### 2 - Run API Automation Test
 To run API test use the following command:
 `npx playwright test GETRoleEndpointValidation.spec.js`
 
-3- ##### Run all test
+##### 3- Run all test
 To run all test, UI and API, run the following command:
 `npx playwright test`
 
@@ -77,7 +81,9 @@ for e.g.: `npx playwright test LoginValidation.spec.js --headed` (this would sho
 Playwright runs on all 3 different browsers Chromium, Firefox and Webkit. To run a quicker test or just need to run on a specific browser, you need to run it specifiying which one using the following command:
 
 `npx playwright test LoginValidation.spec.js --project=chromium` (for chrome)
+
 `npx playwright test LoginValidation.spec.js --project=firefox` (for firefox)
+
 `npx playwright test LoginValidation.spec.js --project=webkit` (for safari)
 
 ## UI Automation Exercises
