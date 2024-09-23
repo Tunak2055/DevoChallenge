@@ -11,14 +11,37 @@ check versions:
 node -v
 npm -v
 
+Outdated Node
+# installs fnm (Fast Node Manager)
+winget install Schniz.fnm
+
+# configure fnm environment
+fnm env --use-on-cd | Out-String | Invoke-Expression
+
+# download and install Node.js
+fnm use --install-if-missing 20
+
+# verifies the right Node.js version is in the environment
+node -v # should print `v20.17.0`
+
+# verifies the right npm version is in the environment
+npm -v # should print `10.8.2`
+
 ##### Setup Instructions
 
 1- Clone repositorie:
 `git clone https://github.com/Tunak2055/DevoChallenge.git`
-`cd DevoChallenge`
+
 
 2- Install Dependencies
 `npm install`
+3- Install Playwright latest
+`npm init playwright@latest`
+4- Delete tests folder created by default
+5 - go to devoChallenges folder
+`cd devoChallenges`
+6- Install dotenv to use environment variables
+`npm install dotenv --save`
 
 ##### Running Test
 
