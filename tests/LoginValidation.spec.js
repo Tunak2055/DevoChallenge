@@ -22,7 +22,7 @@ test.describe('Login Feature Validation', () => {
 
         await test.step('Assert Successful Login', async () => {
             await page.waitForTimeout(5000);
-            await expect(loginPage.homeHeading).toHaveText("Home", { timeout: 10000 });
+            await expect(loginPage.homeHeading).toHaveText('Home', { timeout: 10000 });
             await expect(page).toHaveURL(testData.homePage);
         });
     });
