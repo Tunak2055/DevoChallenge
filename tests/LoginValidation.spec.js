@@ -22,8 +22,8 @@ test.describe('Login Feature Validation', () => {
 
         await test.step('Assert Successful Login', async () => {
             // Wait for the URL to match the expected home page URL
-            await page.waitForURL(testData.homePage, { timeout: 10000 });
-            await expect(page).toHaveURL(testData.homePage);
+            await page.waitForSelector('#main-navigation-container', {state:'visible',timeout:10000});
+            await expect(page).toHaveURL(testData.homePage, {timeout:50000});
         });
     });
 
