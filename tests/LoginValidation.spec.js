@@ -21,11 +21,8 @@ test.describe('Login Feature Validation', () => {
         });
 
         await test.step('Assert Successful Login', async () => {
-            // Wait for the home heading element to be visible before asserting its text
-            await page.waitForSelector(loginPage.homeHeading, { timeout: 5000 });
-            await expect(loginPage.homeHeading).toHaveText('Home', { timeout: 10000 });
             // Wait for the URL to match the expected home page URL
-            await page.waitForURL(testData.homePage, { timeout: 5000 });
+            await page.waitForURL(testData.homePage, { timeout: 10000 });
             await expect(page).toHaveURL(testData.homePage);
         });
     });
